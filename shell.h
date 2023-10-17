@@ -26,6 +26,9 @@ char **spliter(char *line);
 int exe_cute(char **command, char **argv, int idx);
 char *_getenv(char *variable);
 char *get_path(char *cmd);
+void print_error(char *name, char *cmd, int idx);
+char *_itoa(int n);
+void reverse_string(char *str, int len);
 
 
 
