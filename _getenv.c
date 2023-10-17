@@ -11,7 +11,7 @@ char *_getenv(char *variable)
 
 	for (i = 0; environ[i]; i++)
 	{
-		tmp = strdup(environ[i]);
+		tmp = _strdup(environ[i]);
 		key = strtok(tmp, " = ");
 		if (_strcmp(key, variable) == 0)
 		{
