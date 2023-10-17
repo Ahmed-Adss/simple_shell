@@ -37,8 +37,8 @@ void print_error(char *name, char *cmd, int idx)
 		write(STDERR_FILENO, ": ", 2);
 		write(STDERR_FILENO, index, _strlen(index));
 		write(STDERR_FILENO, ": ", 2);
-		write(STDERR_FILENO, "Can't open ", 11);
 		write(STDERR_FILENO, cmd, _strlen(cmd));
+		write(STDERR_FILENO, ": not found", 11);
 		write(STDERR_FILENO, "\n", 1);
 		free(index);
 }

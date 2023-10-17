@@ -9,7 +9,8 @@ char *user_input(void)
 	size_t len = 0;
 	ssize_t n_char;
 
-	write(STDOUT_FILENO, "$ ", 2);
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "$ ", 2);
 	n_char = getline(&input, &len, stdin);
 	if (n_char == -1)
 	{
