@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * spliter - tokinize the command given
+ * @line: user input
+ * Return: command
+ */
 char **spliter(char *line)
 {
 	char *split = NULL, *temp = NULL;
@@ -22,7 +27,7 @@ char **spliter(char *line)
 	}
 	free(temp);
 	cmd = malloc(sizeof(char *) * (i + 1));
-	if(!cmd)
+	if (!cmd)
 	{
 		free(line);
 		return (NULL);
@@ -31,7 +36,7 @@ char **spliter(char *line)
 	while (split)
 	{
 		cmd[l] = _strdup(split);
-		split = strtok(NULL, SEPCIFIER);
+		split = strtok(NULL, SPECIFIER);
 		l++;
 	}
 	free(line);

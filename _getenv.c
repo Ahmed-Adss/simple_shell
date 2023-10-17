@@ -1,0 +1,26 @@
+#include "shell.h"
+/**
+ * _getenv - function to get enviroment variable
+ * @variable: name of env variable to get the value of
+ * Return: the value
+ */
+char *_getenv(char *variable)
+{
+	char *tmp, *key, *value, *env;
+	int i;
+
+	for (i = 0; environ[i]; i++)
+	{
+		tmp = strdup(environ[i]);
+		key = strtok(tmp, " = ");
+		if (_strcmp(key, variable) == 0)
+		{
+			value = strtok(NULL, "\n");
+			env = _strdup(value);
+			free(tmp);
+			return (env);
+		}
+		free(tmp), tmp = NULL;
+	}
+	return (NULL);
+}

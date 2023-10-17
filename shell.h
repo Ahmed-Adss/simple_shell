@@ -22,8 +22,8 @@ char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void free_arr(char **arr);
-char **spliter (char *line);
+char **spliter(char *line);
 int exe_cute(char **command, char **argv);
-
+char *_getenv(char *variable)
 
 #endif
