@@ -27,7 +27,13 @@ int main(int ac, char **argv)
 		if (!cmd)
 			continue;
 
-
+		if (builtin_check(cmd[0]))
+		{
+			builtin_handle(cmd, argv, &status, idx);
+		}
+		else
+		{
 		status = exe_cute(cmd, argv, idx);
+		}
 	}
 }

@@ -29,6 +29,12 @@ char *get_path(char *cmd);
 void print_error(char *name, char *cmd, int idx);
 char *_itoa(int n);
 void reverse_string(char *str, int len);
+int builtin_check(char *cmd);
+void builtin_handle(char **cmd, char **argv, int *status, int idx);
+void shell_exit(char **cmd, char **argv, int *status, int idx);
+void envir_print(char **cmd, int *status);
+int is_positive_number(char *str);
+int _atoi(char *str);
 
 
 
