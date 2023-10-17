@@ -15,7 +15,7 @@ char *get_path(char *cmd)
 		if (cmd[i] == '/')
 		{
 			if (stat(cmd, &st) == 0)
-				return(_strdup(cmd));
+				return (_strdup(cmd));
 			return (NULL);
 		}
 	}

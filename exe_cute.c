@@ -3,6 +3,7 @@
  * exe_cute - execute a process
  * @command: given command
  * @argv: array of strings
+ * @idx: index
  * Return: 1 if success, otherwise 0
  */
 int exe_cute(char **command, char **argv, int idx)
@@ -17,7 +18,7 @@ int exe_cute(char **command, char **argv, int idx)
 	{
 		print_error(argv[0], command[0], idx);
 		free_arr(command);
-		return(127);
+		return (127);
 	}
 
 	child = fork();
