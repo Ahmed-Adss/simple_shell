@@ -5,25 +5,35 @@
  * @argv: array of strings
  * Return: 1 if success, otherwise 0
  */
-int exe_cute(char **command, char **argv)
+int exe_cute(char **command, char **argv, int idx)
 {
+	char *cmd_complete;
 	pid_t child;
 	int status;
+
+
+	cmd_complete = get_path(command[0]);
+	if (!cmd_complete)
+	{
+		print_error(argv[0], command[0], idx);
+		free_arr(command);
+		return(127);
+	}
 
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(command[0], command, environ) == -1)
+		if (execve(cmd_complete, command, environ) == -1)
 			{
-				perror(argv[0]);
+				free(cmd_complete);
 				free_arr(command);
-				exit(0);
 			}
 	}
 	else
 	{
 		waitpid(child, &status, 0);
 		free_arr(command);
+		free(cmd_complete);
 	}
 	return (WEXITSTATUS(status));
 }

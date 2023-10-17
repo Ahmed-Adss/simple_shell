@@ -9,7 +9,7 @@ int main(int ac, char **argv)
 {
 	char *input = NULL;
 	char **cmd = NULL;
-	int status = 0;
+	int status = 0, idx = 0;
 	(void) ac;
 
 	while (1)
@@ -22,11 +22,12 @@ int main(int ac, char **argv)
 			return (status);
 		}
 
+		idx++;
 		cmd = spliter(input);
 		if (!cmd)
 			continue;
 
 
-		status = exe_cute(cmd, argv);
+		status = exe_cute(cmd, argv, idx);
 	}
 }

@@ -23,7 +23,10 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void free_arr(char **arr);
 char **spliter(char *line);
-int exe_cute(char **command, char **argv);
+int exe_cute(char **command, char **argv, int idx);
 char *_getenv(char *variable)
+char *get_path(char *cmd);
+
+
 
 #endif
