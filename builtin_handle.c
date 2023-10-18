@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * builtin_check - check for built in
+ * @cmd: command that will be checked
+ * Return: always 0
+ */
 int builtin_check(char *cmd)
 {
 	char *built_in[] = {
@@ -13,7 +18,14 @@ int builtin_check(char *cmd)
 	}
 	return (0);
 }
-
+/**
+ * builtin_handle - function to handle built in
+ * @cmd: command to be checked
+ * @argv: array of commands
+ * @status: pointer to status pointer
+ * @idx: num of command executed
+ * Return: void
+ */
 void builtin_handle(char **cmd, char **argv, int *status, int idx)
 {
 	if (_strcmp(cmd[0], "exit") == 0)
@@ -21,7 +33,14 @@ void builtin_handle(char **cmd, char **argv, int *status, int idx)
 	else if (_strcmp(cmd[0], "env") == 0)
 		envir_print(cmd, status);
 }
-
+/**
+ * shell_exit - check if command is exit
+ * @cmd: command given
+ * @argv: array of command
+ * @status: pointer to status pointer
+ * @idx: the command count
+ * Return: void
+ */
 void shell_exit(char **cmd, char **argv, int *status, int idx)
 {
 	int exit_val = (*status);
@@ -51,7 +70,12 @@ void shell_exit(char **cmd, char **argv, int *status, int idx)
 	free_arr(cmd);
 	exit(exit_val);
 }
-
+/**
+ * envir_print - prints the environment
+ * @cmd: command given
+ * @status: pointer to status env
+ * Return: enviroment
+ */
 void envir_print(char **cmd, int *status)
 {
 	int i;
