@@ -25,10 +25,10 @@ int exe_cute(char **command, char **argv, int idx)
 	if (child == 0)
 	{
 		if (execve(cmd_complete, command, environ) == -1)
-			{
-				free(cmd_complete);
-				free_arr(command);
-			}
+		{
+			free(cmd_complete);
+			free_arr(command);
+		}
 	}
 	else
 	{
